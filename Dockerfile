@@ -8,7 +8,8 @@ RUN apt-get install -y -q \
     build-essential \
     curl
     
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN curl https://sh.rustup.rs -sSf | \
+    sh -s -- --default-toolchain nightly -y
 
 # Add .cargo/bin to PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
