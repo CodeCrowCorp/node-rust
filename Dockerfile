@@ -7,12 +7,14 @@ RUN apt-get -qq update
 RUN apt-get install -y -q \
     build-essential \
     curl
-    
+
 RUN curl https://sh.rustup.rs -sSf | \
     sh -s -- --default-toolchain nightly -y
 
 # Add .cargo/bin to PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
+
+RUN rustup default stable
 
 # Check cargo is visible
 RUN cargo --help
