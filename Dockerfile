@@ -18,7 +18,7 @@ RUN cargo install worker-build
 
 ENV PATH="/root/.worker-build/bin:${PATH}"
 
-ENV PATH="/root/.wasm-pack/bin:${PATH}"
+SHELL ["/bin/bash","-c"]
 
 # Check cargo is visible
 RUN cargo --help
