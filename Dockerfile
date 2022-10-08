@@ -14,5 +14,11 @@ RUN curl https://sh.rustup.rs -sSf | \
 # Add .cargo/bin to PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
 
+RUN cargo install worker-build
+
+ENV PATH="/root/.worker-build/bin:${PATH}"
+
+SHELL ["/bin/bash","-c"]
+
 # Check cargo is visible
 RUN cargo --help
